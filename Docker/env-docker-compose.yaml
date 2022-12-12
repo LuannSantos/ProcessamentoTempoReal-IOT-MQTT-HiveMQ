@@ -1,0 +1,23 @@
+version: "2.12.2" 
+
+services:
+  streamsets:
+    image: streamsets/datacollector:3.22.3
+    ports: 
+    - "18630:18630"
+    volumes:
+    - sdc_properties:/etc/sdc
+    - sdc_data:/data
+    container_name: streamsets
+    restart: always
+  python:
+    build: .
+    volumes:
+    - type: bind
+      source: /opt/Pipeline_StreamSets
+      target: /usr/src/app
+    container_name: python_mqtt
+
+volumes:
+    sdc_properties:
+    sdc_data:

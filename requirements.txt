@@ -1,0 +1,6 @@
+pandas
+numpy
+pendulum
+python-dotenv
+paho-mqtt
+boto3
